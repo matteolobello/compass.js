@@ -18,8 +18,8 @@ const compass = Compass.config("#app", {
 	// should handle HTML files loading.
 	// If set to "start" => HTML files will be loaded at launch.
 	// If set to "lazy"  => HTML files will be loaded only when needed
-	//						(e.g. first time we show the route).
-	//						The HTML code will be cached for next uses.
+	//			(e.g. first time we show the route).
+	//			The HTML code will be cached for next uses.
 	mode: "start",
 
 	// Optional transitions object.
