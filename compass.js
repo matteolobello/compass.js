@@ -66,8 +66,8 @@ class Compass {
                             self._handleOnRouteChange()
                             window.onhashchange()
 
-                            if (self.compassConfig.onLoad) {
-                                self.compassConfig.onLoad()
+                            if (self.compassConfig.onInit) {
+                                self.compassConfig.onInit()
                             }
                         }
                     })
