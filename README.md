@@ -4,11 +4,11 @@ Compass.js is a vanilla-js, dependency-free, lightweight JavaScript library that
 
 ## Setup
 Import compass.js in your index.html file.
-```
+```html
 <script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/master/compass.js"></script>
 ```
 Configure a new Compass instance.
-```
+```js
 <script>
 // Create a new instance passing the root container
 // selector and the Compass configuration object.
@@ -53,15 +53,15 @@ const compass = Compass.config("#app", {
 </script>
 ```
 Handle route change from HTML.
-```
+```html
 <button compass-link="/earth">Earth</button>
 ``` 
 Programmatically change route and parameters passing.
-```
+```js
 compass.changeRoute("/planet", { name: "earth" })
 ``` 
 Programmatically get parameters.
-```
+```js
 let planetName = compass.getUrlParameter("name")
 ``` 
 
