@@ -23,30 +23,29 @@ const compass = Compass.config("#app", {
 	mode: "start",
 
 	// Optional transitions object.
-	// Must contain in and out animation classes
+	// Must contain in and out animation classes.
 	transitions: {
 		in: "fade-in",
 		out: "fade-out"
 	},
 	
 	onChange: function (path) {
-		// Do something when the path changes
+		// Do something when the path changes.
 	},
 	
 	// This function gets triggered only if "mode" is set to "start"
 	onInit: function () {
-		// Do something when Compass has been initalized
+		// Do something when Compass has been initalized.
 	},
 	
-	// Dictionary with path as key and 
-	// HTML file path to load as value
+	// Dictionary with path as key and HTML file path to load as value.
 	routes: {
 		"/": "/views/home.html",
 		"/earth": "/views/earth.html",
 		"/moon": "/views/moon.html",
 		"/sun": "/views/sun.html",
 		
-		// If route is not valid, redirect to 404 page
+		// If route is not valid, redirect to 404 page.
 		"/404": "/views/404.html"
 	}
 });
@@ -65,4 +64,4 @@ Programmatically get parameters.
 let planetName = compass.getUrlParameter("name")
 ``` 
 
-<b>Note: <b> scripts inside a route will be executed every time that route is shown!
+<b>Note:</b> scripts inside a route will be executed every time that route is shown!
