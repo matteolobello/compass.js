@@ -1,6 +1,6 @@
 
 # compass.js
-Compass.js is a dependency-free, lightweight vanilla JavaScript library that allows you to easily build single-page applications.
+Compass.js is a dependency-free, lightweight, vanilla JavaScript library that allows you to easily build single-page applications.
 
 ## Setup
 Import compass.js in your index.html file.
