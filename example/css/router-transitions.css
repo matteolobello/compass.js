@@ -1,0 +1,11 @@
+app-router {
+    transition: opacity 0.5s;
+}
+
+.anim-in {
+    opacity: 1;
+}
+
+.anim-out {
+    opacity: 0;
+}
