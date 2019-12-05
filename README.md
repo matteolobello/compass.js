@@ -1,6 +1,8 @@
 
 # compass.js
-Compass.js is a dependency-free, lightweight, vanilla JavaScript library that allows you to easily build single-page applications.
+Compass.js (Web Comppnenets Edition) is a lightweight JavaScript library based on LitElement that allows you to easily build single-page applications.
+<br>
+<a href="https://musing-minsky-b105b4.netlify.com">Show example page</a>
 
 ## Setup
 ```html
