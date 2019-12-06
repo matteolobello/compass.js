@@ -8,8 +8,8 @@ Compass.js (Web Components Edition) is a lightweight JavaScript library based on
 ```html
 <!DOCTYPE html>
 <head>
-	<!-- ... -->
-
+    <!-- ... -->
+    
     <script type="module" src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/web-components/compass.js"></script>
 </head>
 <body>
@@ -23,15 +23,15 @@ Handle route change from HTML.
 Programmatically change route and parameters passing.
 ```js
 let changeRouteEvt = new CustomEvent("compass-router-change-route", {
-	detail: { 
-		newRoute: "/",
-		// Optional
-		params: {
-			test: "ok"
-		}
-	},
-	bubbles: true,
-	composed: true
+    detail: { 
+        newRoute: "/",
+        // Optional
+        params: {
+            test: "ok"
+        }
+    },
+    bubbles: true,
+    composed: true
 })
 this.dispatchEvent(changeRouteEvt)
 ``` 
