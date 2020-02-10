@@ -43,7 +43,7 @@ document.querySelector("app-bottom-bar")
 
 document.querySelector("app-router")
     .init({
-        transitionsEnabled: false, 
+        transitionsEnabled: true, 
         onChange: function (path) {
             document.querySelector("app-bottom-bar").onRouteChange(path)
         },

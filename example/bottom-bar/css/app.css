@@ -1,0 +1,20 @@
+:root { 
+    --bottom-bar-height: 80px; 
+}
+html, body { 
+    margin: 0; 
+}
+
+/** Router Config **/
+
+app-router {
+    display: block;
+    margin-bottom: var(--bottom-bar-height);
+    transition: opacity 0.2s;
+}
+.anim-in {
+    opacity: 1;
+}
+.anim-out {
+    opacity: 0;
+}

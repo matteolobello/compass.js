@@ -9,7 +9,6 @@ export class FavouritesElement extends LitElement {
     render() {
         return html`
             <h1>Favourites</h1>
-            <div style="height: var(--bottom-bar-height)"></div>
         `
     }
 }

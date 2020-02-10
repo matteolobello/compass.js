@@ -9,7 +9,6 @@ export class SettingsElement extends LitElement {
     render() {
         return html`
             <h1>Settings</h1>
-            <div style="height: var(--bottom-bar-height)"></div>
         `
     }
 }

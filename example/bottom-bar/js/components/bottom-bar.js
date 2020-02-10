@@ -44,8 +44,8 @@ class BottomBarElement extends LitElement {
                 width: 100%;
                 height: 100%;
                 list-style: none;
-                padding: 0 16px;
                 border: 0.5px rgba(0, 0, 0, 0.2) solid;
+                padding-bottom: env(safe-area-inset-bottom);
             }
 
             li > a {
@@ -58,11 +58,25 @@ class BottomBarElement extends LitElement {
                 text-decoration: none;
                 font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
                 font-weight: bold;
+                transition: background 0.25s;
+                -webkit-user-select: none;
+                -webkit-touch-callout: none;
+            }
+
+            li > a:focus {
+                background: rgba(0, 0, 0, 0.1);
             }
 
             li > a > img {
                 width: 26px;
                 height: 26px;
+                pointer-events: none;
+            }
+
+            @media (hover: hover) {
+                li > a:hover {
+                    background: rgba(0, 0, 0, 0.1);
+                }
             }
 
             @media screen and (min-width: 800px) {

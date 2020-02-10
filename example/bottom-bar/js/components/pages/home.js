@@ -15,7 +15,6 @@ export class HomeElement extends LitElement {
     render() {
         return html`
             ${this.numbers.map(num => html`<h1>${num}</h1>`)}
-            <div style="height: var(--bottom-bar-height)"></div>
         `
     }
 }
