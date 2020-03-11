@@ -3,53 +3,25 @@
 Compass.js is a dependency-free, lightweight, vanilla JavaScript library that allows you to easily build single-page applications.
 
 ## Setup
-Import compass.js in your index.html file.
+Configure your HTML code.
+The ```route``` attribute describes when to show that element.
+Put the ```compass.js``` import to the bottom of the file just before closing the  ```<body>``` tag. It will create a new Compass instance, accessible via the ```Router``` object everywhere you need to.
+Make sure to always implement the "/" and "/404" routes.
 ```html
-<script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/master/compass.js"></script>
-```
-Configure a new Compass instance.
-```js
-<script>
-// Create a new instance passing the root container
-// selector and the Compass configuration object.
-const compass = Compass.config("#app", {
+<!-- 
+	This example uses Web Components, 
+	but the library works well everywhere. 
+	You can use non-custom tags, like <div>, for example. 
+	See the "examples" folder for more info. 
+-->
+<body>
+	<app-404 route="/404"></app-404>
+	<app-home route="/"></app-home>
+	<app-favourites route="/favourites"></app-favourites>
+	<app-settings route="/settings"></app-settings>
 
-	// The behavior that describes how we 
-	// should handle HTML files loading.
-	// If set to "start" => HTML files will be loaded at launch.
-	// If set to "lazy"  => HTML files will be loaded only when needed
-	//			(e.g. first time we show the route).
-	//			The HTML code will be cached for next uses.
-	mode: "start",
-
-	// Optional transitions object.
-	// Must contain in and out animation classes.
-	transitions: {
-		in: "fade-in",
-		out: "fade-out"
-	},
-	
-	onChange: function (path) {
-		// Do something when the path changes.
-	},
-	
-	// This function gets triggered only if "mode" is set to "start"
-	onInit: function () {
-		// Do something when Compass has been initalized.
-	},
-	
-	// Dictionary with path as key and HTML file path to load as value.
-	routes: {
-		"/": "/views/home.html",
-		"/earth": "/views/earth.html",
-		"/moon": "/views/moon.html",
-		"/sun": "/views/sun.html",
-		
-		// If route is not valid, redirect to 404 page.
-		"/404": "/views/404.html"
-	}
-});
-</script>
+	<script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/v2/compass.min.js"></script>
+</body>
 ```
 Handle route change from HTML.
 ```html
@@ -57,11 +29,9 @@ Handle route change from HTML.
 ``` 
 Programmatically change route and parameters passing.
 ```js
-compass.changeRoute("/planet", { name: "earth" })
+Router.changeRoute("/planet", { name: "earth" })
 ``` 
 Programmatically get parameters.
 ```js
-let planetName = compass.getUrlParameter("name")
-``` 
-
-<b>Note:</b> scripts inside a route will be executed every time that route is shown!
+let planetName = Router.getUrlParameter("name")
+```
