@@ -1,11 +1,5 @@
 class Compass {
 
-    // The name of the event we dispatch 
-    // when the route changes
-    static EVENT_ROUTE_CHANGE() {
-        return "on-route-change"
-    }
-
     constructor() {
         this.Routes = []
 
@@ -114,8 +108,8 @@ class Compass {
                 routeConfig.element.style.display = mustShowEl ? "block" : "none"
             })
 
-            const event = new CustomEvent(this.EVENT_ROUTE_CHANGE, { detail: { newRoute } })
-            document.dispatchEvent(event)
+            const event = new CustomEvent("route-change", { detail: { newRoute } })
+            window.dispatchEvent(event)
         }
 
         // Needed for the first setup
