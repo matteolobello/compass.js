@@ -85,7 +85,10 @@ class Compass {
 
     _startListeningForRouteChange() {
         onhashchange = () => {
-            const newRoute = location.hash.replace("#!", "")
+            let newRoute = location.hash.replace("#!", "")
+            if (newRoute.includes("?")) {
+                newRoute = newRoute.split("?")[0]
+            }
 
             // Find the route to show based on the hash
             let routeConfigToShow = this.Routes.find(routeConfig => {
