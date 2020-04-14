@@ -5,6 +5,21 @@ class Compass {
 
         // Setup all routes
         document.querySelectorAll("[route]").forEach(routeElement => {
+            const viewUrl = routeElement.getAttribute("view")
+            if (viewUrl) {
+                this._fetchViewHtmlAsync(viewUrl)
+                    .then(viewHtml => {
+                        routeElement.innerHTML = viewHtml
+
+                        // Run inner route scripts
+                        const scripts = routeElement.getElementsByTagName("script")
+                        for (var i = 0; i < scripts.length; i++) {
+                            eval(scripts[i].innerText)
+                        }
+                    })
+                    .catch(console.error)
+            }
+
             this.Routes.push({
                 element: routeElement,
                 route: routeElement.getAttribute("route")
@@ -123,7 +138,12 @@ class Compass {
         // Needed for the first setup
         onhashchange()
     }
+
+    async _fetchViewHtmlAsync(viewUrl) {
+        const fileContent = await fetch(viewUrl)
+        return await fileContent.text()
+    }
 }
 
-// This way, the Router instance will be visible everywhere
+// Make the Router instance will be visible everywhere
 Router = new Compass()

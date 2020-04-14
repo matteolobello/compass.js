@@ -18,40 +18,10 @@
 </head>
 
 <body>
-
-    <!-- HOME -->
-    <div route="/">
-        <h2>Home</h2>
-        <br>
-        <span compass-link="/about">Go to about page</span>
-        <br>
-        <span compass-link="/details/user" new-tab>Go to user details page (opens in new Tab)</span>
-    </div>
-
-    <!-- ABOUT -->
-    <div route="/about">
-        <h2>About</h2>
-        <br>
-        <span compass-link="/">Go home</span>
-        <br>
-        <span compass-link="/details/user">Go to user details page</span>
-    </div>
-
-    <!-- USER DETAILS -->
-    <div route="/details/user">
-        <h2>User Information</h2>
-        <br>
-        <span compass-link="/">Go home</span>
-        <br>
-        <span compass-link="/about" new-tab>Go to about page (opens in new Tab)</span>
-    </div>
-
-    <!-- 404 PAGE -->
-    <div route="/404">
-        <h2>Not Found!</h2>
-        <br>
-        <span compass-link="/">Go home</span>
-    </div>
+    <div route="/" view="./views/home.html"></div>
+    <div route="/about" view="./views/about.html"></div>
+    <div route="/details/user" view="./views/user-details.html"></div>
+    <div route="/404" view="./views/404.html"></div>
 
     <script src="../../compass.js"></script>
 </body>
