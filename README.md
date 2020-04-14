@@ -23,15 +23,16 @@ Make sure to always implement the "/" and "/404" routes.
 	<script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/v2/compass.min.js"></script>
 </body>
 ```
-Handle route change from HTML.
+#### Handle route change from HTML.
 ```html
 <button compass-link="/earth">Earth</button>
 ``` 
-Programmatically change route and parameters passing.
+If needed, set the `new-tab` attribute to open the link in a new browser tab.
+#### Programmatically change route and parameters passing.
 ```js
 Router.changeRoute("/planet", { name: "earth" })
 ``` 
-Programmatically get parameters.
+#### Programmatically get parameters.
 ```js
 let planetName = Router.getUrlParameter("name")
 ```

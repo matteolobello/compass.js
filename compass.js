@@ -14,9 +14,8 @@ class Compass {
         // Handle elements with "compass-link" attribute click
         document.addEventListener("click", (event) => {
             const compassLink = event.target.getAttribute("compass-link")
-            if (compassLink) {
-                this.changeRoute(compassLink)
-            }
+            const newTab = event.target.hasAttribute("new-tab")
+            this.changeRoute(compassLink, {}, newTab)
         }, false)
 
         // Check if the "/" route is present
@@ -36,7 +35,7 @@ class Compass {
 
     // Public function to change the current route, 
     // passing parameters if needed
-    changeRoute(path, params = {}) {
+    changeRoute(path, params = {}, newTab = false) {
         let newHash = "#!" + (path.startsWith("/") ? path : ("/" + path))
 
         let parameterNames = Object.keys(params)
@@ -50,7 +49,16 @@ class Compass {
             newHash += parameterNames[i] + "=" + encodeURIComponent(params[parameterNames[i]])
         }
 
-        window.location.hash = newHash
+        if (newTab) {
+            let currentHref = window.location.href
+            if (currentHref.includes("#!")) {
+                currentHref = currentHref.split("#!")[0]
+            }
+            const urlToOpen = `${currentHref}${newHash}`
+            window.open(urlToOpen, "_blank")
+        } else {
+            window.location.hash = newHash
+        }
     }
 
     // Public function to get a URL parameter
