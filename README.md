@@ -21,12 +21,12 @@ Make sure to always implement the "/" and "/404" routes.
 #### Simple usage
 ```html
 <body>
-	<div route="/" view="./views/home.html"></div>
+    <div route="/" view="./views/home.html"></div>
     <div route="/about" view="./views/about.html"></div>
     <div route="/details/user" view="./views/user-details.html"></div>
     <div route="/404" view="./views/404.html"></div>
 
-	<script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/v2/compass.min.js"></script>
+    <script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/v2/compass.min.js"></script>
 </body>
 ```
 #### Handle route change from HTML.
