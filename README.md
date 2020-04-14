@@ -10,12 +10,12 @@ Make sure to always implement the "/" and "/404" routes.
 #### Web Components usage
 ```html
 <body>
-	<app-404 route="/404"></app-404>
-	<app-home route="/"></app-home>
-	<app-favourites route="/favourites"></app-favourites>
-	<app-settings route="/settings"></app-settings>
+    <app-404 route="/404"></app-404>
+    <app-home route="/"></app-home>
+    <app-favourites route="/favourites"></app-favourites>
+    <app-settings route="/settings"></app-settings>
 
-	<script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/v2/compass.min.js"></script>
+    <script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/v2/compass.min.js"></script>
 </body>
 ```
 #### Simple usage
