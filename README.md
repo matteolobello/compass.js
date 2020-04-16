@@ -15,7 +15,7 @@ Make sure to always implement the "/" and "/404" routes.
     <app-favourites route="/favourites"></app-favourites>
     <app-settings route="/settings"></app-settings>
 
-    <script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/v2/compass.min.js"></script>
+    <script src="https://raw.githack.com/matteolobello/compass.js/v2/compass.min.js"></script>
 </body>
 ```
 #### Simple usage
@@ -26,7 +26,7 @@ Make sure to always implement the "/" and "/404" routes.
     <div route="/details/user" view="./views/user-details.html"></div>
     <div route="/404" view="./views/404.html"></div>
 
-    <script src="https://gitcdn.xyz/repo/lobellomatteo/compass.js/v2/compass.min.js"></script>
+    <script src="https://raw.githack.com/matteolobello/compass.js/v2/compass.min.js"></script>
 </body>
 ```
 #### Handle route change from HTML.
