@@ -51,6 +51,10 @@ class Compass {
     // Public function to change the current route, 
     // passing parameters if needed
     changeRoute(path, params = {}, newTab = false) {
+        if (!path) {
+            return
+        }
+        
         let newHash = "#!" + (path.startsWith("/") ? path : ("/" + path))
 
         let parameterNames = Object.keys(params)
