@@ -2,29 +2,37 @@ class Compass {
 
     constructor() {
         this.Routes = []
+    }
 
+    async init() {
         // Setup all routes
-        document.querySelectorAll("[route]").forEach(routeElement => {
-            const viewUrl = routeElement.getAttribute("view")
-            if (viewUrl) {
-                this._fetchViewHtmlAsync(viewUrl)
-                    .then(viewHtml => {
-                        routeElement.innerHTML = viewHtml
+        const routeElements = document.querySelectorAll("[route]");
+        for (let i = 0; i < routeElements.length; i++) {
+            const routeElement = routeElements[i]
 
-                        // Run inner route scripts
-                        const scripts = routeElement.getElementsByTagName("script")
-                        for (var i = 0; i < scripts.length; i++) {
-                            eval(scripts[i].innerText)
-                        }
-                    })
-                    .catch(console.error)
-            }
-
-            this.Routes.push({
+            let routeConfig = {
                 element: routeElement,
                 route: routeElement.getAttribute("route")
-            })
-        })
+            }
+            this.Routes.push(routeConfig)
+
+            const viewUrl = routeElement.getAttribute("view")
+            if (viewUrl) {
+                const viewHtml = await this._fetchViewHtmlAsync(viewUrl)
+                routeElement.innerHTML = viewHtml
+
+                // Run inner route scripts
+                const scripts = routeElement.getElementsByTagName("script")
+                for (let i = 0; i < scripts.length; i++) {
+                    const scriptWrapper = eval("(function() { " + scripts[i].innerText + "})")
+                    const script = new scriptWrapper()
+
+                    // Push the script to route config
+                    routeConfig.scripts = routeConfig.scripts || []
+                    routeConfig.scripts.push(script)
+                }
+            }
+        }
 
         // Handle elements with "compass-link" attribute click
         document.addEventListener("click", (event) => {
@@ -51,10 +59,10 @@ class Compass {
     // Public function to change the current route, 
     // passing parameters if needed
     changeRoute(path, params = {}, newTab = false) {
-        if (!path) {
+        if (!path) {
             return
         }
-        
+
         let newHash = "#!" + (path.startsWith("/") ? path : ("/" + path))
 
         let parameterNames = Object.keys(params)
@@ -130,6 +138,21 @@ class Compass {
                 routeConfigToShow = this.notFoundRoute
             }
 
+            // Notify route config that it's becoming visible
+            if (routeConfigToShow.scripts) {
+                // Plain usage function callback
+                routeConfigToShow.scripts.forEach((script) => {
+                    if (script.onRouteBecameVisible) {
+                        script.onRouteBecameVisible()
+                    }
+                })
+            } else if (routeConfigToShow.element) {
+                // Web Components function callback
+                if (routeConfigToShow.element.onRouteBecameVisible) {
+                    routeConfigToShow.element.onRouteBecameVisible()
+                }
+            }
+
             this.Routes.forEach((routeConfig) => {
                 const mustShowEl = routeConfig.route == routeConfigToShow.route
                 routeConfig.element.style.display = mustShowEl ? "block" : "none"
@@ -149,5 +172,17 @@ class Compass {
     }
 }
 
-// Make the Router instance will be visible everywhere
+// Hide the content of the body while Compass is loading its views
+document.body.style.display = "none"
+
+// Make the Router instance visible everywhere
 Router = new Compass()
+
+// Init Compass as soon as the DOM
+addEventListener("DOMContentLoaded", () => {
+    Router.init()
+        .then(() => {
+            document.body.style.display = "block"
+        })
+})
+

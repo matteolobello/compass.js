@@ -3,3 +3,8 @@
 <span compass-link="/">Go home</span>
 <br>
 <span compass-link="/details/user">Go to user details page</span>
+<script>
+    this.onRouteBecameVisible = () => {
+        alert(`The "About" route became visible.\nNow you can check if you need to update the page content, for example.`)
+    }
+</script>

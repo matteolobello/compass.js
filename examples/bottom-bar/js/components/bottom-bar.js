@@ -96,7 +96,7 @@ class BottomBarElement extends LitElement {
 
         this.items = []
 
-        document.addEventListener(Router.EVENT_ROUTE_CHANGE, (event) => {
+        window.addEventListener("route-change", (event) => {
             if (event.detail && event.detail.newRoute) {
                 this._onRouteChange(event.detail.newRoute)
             }

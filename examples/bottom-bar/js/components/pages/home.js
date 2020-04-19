@@ -17,6 +17,10 @@ export class HomeElement extends LitElement {
             ${this.numbers.map(num => html`<h1>${num}</h1>`)}
         `
     }
+
+    onRouteBecameVisible() {
+        // Do something 
+    }
 }
 
 customElements.define(HomeElement.is, HomeElement)
