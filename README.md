@@ -4,11 +4,9 @@ Compass.js is a dependency-free, lightweight, vanilla JavaScript library that al
 
 ## Setup
 The `route` attribute describes in which route the HTML element should be visible.
-
 Put the `compass.js` import `<script>` tag to the bottom of your HTML file just before closing the `</body>` tag. It will create a new Compass instance, accessible via `window.Router` or simply `Router`.
-
 Make sure to always implement the `/` and `/404` routes.
-<hr>
+___________________________________________________________________________________________
 #### Web Components usage
 ```html
 <body>
@@ -31,23 +29,23 @@ Make sure to always implement the `/` and `/404` routes.
     <script src="https://raw.githack.com/matteolobello/compass.js/v2/compass.min.js"></script>
 </body>
 ```
-<hr>
+___________________________________________________________________________________________
 #### Change route from HTML
 ```html
 <button compass-link="/earth">Earth</button>
 ```
 If needed, set the `new-tab` attribute to open the link in a new browser tab.
-<hr>
+___________________________________________________________________________________________
 #### Programmatically change route and parameters passing
 ```js
 Router.changeRoute("/planet", { name: "earth" })
 ``` 
-<hr>
+___________________________________________________________________________________________
 #### Programmatically get parameters
 ```js
 let planetName = Router.getUrlParameter("name")
 ```
-<hr>
+___________________________________________________________________________________________
 #### Listen to route change events
 ```js
 window.addEventListener("route-change", (event) => {
@@ -56,11 +54,11 @@ window.addEventListener("route-change", (event) => {
     }
 })
 ```
-<hr>
+___________________________________________________________________________________________
 #### Do something when the route becomes visible
 ##### If you're using the "Simple usage" method
 ###### views/section-one.html
-```html
+```js
 <h1>Section One</h1>
 <script>
     this.onRouteBecameVisible = () => {
