@@ -178,7 +178,7 @@ document.body.style.display = "none"
 // Make the Router instance visible everywhere
 Router = new Compass()
 
-// Init Compass as soon as the DOM
+// Init Compass as soon as the DOM gets loaded
 addEventListener("DOMContentLoaded", () => {
     Router.init()
         .then(() => {
